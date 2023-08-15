@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".PlayerActivity">
+
+    <VideoView
+        android:id="@+id/exoplayerMovie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        app:elevation="0sp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/toolbar_background"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_baseline_arrow_back" />
+
+            <EditText
+                android:id="@+id/mTimerInput"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints="Timer"
+                android:hint="min"
+                android:inputType="time"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/sTimerInput"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints="Timer"
+                android:hint="sec"
+                android:inputType="time"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/done"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_baseline_done"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/barText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:shadowColor="@color/black"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/repeatPlay"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/radius_false"
+                android:scaleType="center"
+                android:src="@drawable/ic_baseline_repeat_one" />
+
+            <ImageView
+                android:id="@+id/playTimerImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/radius_false"
+                android:scaleType="center"
+                android:src="@drawable/ic_baseline_timer" />
+
+            <TextView
+                android:id="@+id/playTimerText"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/radius_true"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/backgroundPlay"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/radius_false"
+                android:scaleType="center"
+                android:src="@drawable/ic_baseline_headphones" />
+
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottoms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_background"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/exo_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="0dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:layout_toStartOf="@+id/exo_duration"
+            android:layout_toEndOf="@+id/exo_position"
+            app:bar_height="0dp"
+            app:buffered_color="#88FFFFFF"
+            app:played_color="#0004FF"
+            app:scrubber_color="#0004FF"
+            app:unplayed_color="#88FFFFFF" />
+
+        <TextView
+            android:id="@+id/exo_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="0dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/exo_prev"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/seekbar"
+            android:layout_margin="8dp"
+            android:layout_toStartOf="@+id/exo_play_pause"
+            android:src="@drawable/ic_baseline_skip_previous" />
+
+        <ImageView
+            android:id="@+id/exo_play_pause"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/seekbar"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_baseline_play_circle" />
+
+        <ImageView
+            android:id="@+id/xo_next"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/seekbar"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@+id/exo_play_pause"
+            android:src="@drawable/ic_baseline_skip_next" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
